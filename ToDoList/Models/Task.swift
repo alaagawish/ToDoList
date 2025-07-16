@@ -10,6 +10,6 @@ import Foundation
 struct Task {
     var id: Int
     var title: String
-    var date: Date
+    var date: String
     var isCompleted: Bool
 }

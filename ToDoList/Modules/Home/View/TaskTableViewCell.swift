@@ -18,7 +18,6 @@ class TaskTableViewCell: UITableViewCell {
         super.awakeFromNib()
     }
     func add(task: Task) {
-        
         check.setImage(UIImage(systemName: task.isCompleted ? "checkmark.square" : "square"), for: .normal)
         if task.isCompleted {
             let attributedString = NSAttributedString(
@@ -30,7 +29,12 @@ class TaskTableViewCell: UITableViewCell {
             
             taskLabel.attributedText = attributedString
         } else {
-            taskLabel.text = task.title
+            let attributedString = NSAttributedString(
+                string: task.title,
+                attributes: [:]
+            )
+            taskLabel.attributedText = attributedString
+            
         }
     }
     @IBAction func editTask(_ sender: Any) {

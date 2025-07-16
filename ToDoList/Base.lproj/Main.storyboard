@@ -181,9 +181,66 @@
                     <view key="view" contentMode="scaleToFill" id="6wl-kf-eaP">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Task" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="baG-Bh-uJo">
+                                <rect key="frame" x="16.000000000000007" y="134" width="101.66666666666669" height="25.333333333333343"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iK7-Ye-o3B">
+                                <rect key="frame" x="322" y="130" width="55" height="39"/>
+                                <color key="tintColor" red="0.61247480580000002" green="0.20036457539999999" blue="0.16016841649999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Add"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="12"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="0.61247480580000002" green="0.20036457539999999" blue="0.16016841649999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="addNewTask:" destination="0CE-kK-2hb" eventType="touchUpInside" id="MEf-d9-OZ0"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="v97-kA-meu">
+                                <rect key="frame" x="16" y="183.33333333333334" width="362" height="70"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="YSF-SF-D20"/>
+                                </constraints>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="y5L-qn-5ud">
+                                <rect key="frame" x="16" y="273" width="361" height="37"/>
+                            </datePicker>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="Lp5-7D-l9y"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="iK7-Ye-o3B" firstAttribute="top" secondItem="Lp5-7D-l9y" secondAttribute="top" constant="12" id="MsJ-nN-7gq"/>
+                            <constraint firstItem="Lp5-7D-l9y" firstAttribute="trailing" secondItem="iK7-Ye-o3B" secondAttribute="trailing" constant="16" id="RIY-2f-ivB"/>
+                            <constraint firstItem="y5L-qn-5ud" firstAttribute="top" secondItem="v97-kA-meu" secondAttribute="bottom" constant="20" id="Wav-wo-fN8"/>
+                            <constraint firstAttribute="trailing" secondItem="y5L-qn-5ud" secondAttribute="trailing" constant="16" id="Wue-v2-Ixf"/>
+                            <constraint firstItem="Lp5-7D-l9y" firstAttribute="trailing" secondItem="v97-kA-meu" secondAttribute="trailing" constant="15" id="jjm-1M-e2p"/>
+                            <constraint firstItem="baG-Bh-uJo" firstAttribute="top" secondItem="Lp5-7D-l9y" secondAttribute="top" constant="16" id="kbn-LJ-6TI"/>
+                            <constraint firstItem="v97-kA-meu" firstAttribute="leading" secondItem="Lp5-7D-l9y" secondAttribute="leading" constant="16" id="nTV-d1-hxx"/>
+                            <constraint firstItem="baG-Bh-uJo" firstAttribute="leading" secondItem="Lp5-7D-l9y" secondAttribute="leading" constant="16" id="pc3-qc-4gG"/>
+                            <constraint firstItem="v97-kA-meu" firstAttribute="top" secondItem="baG-Bh-uJo" secondAttribute="bottom" constant="24" id="puR-Xo-l5s"/>
+                            <constraint firstItem="y5L-qn-5ud" firstAttribute="leading" secondItem="6wl-kf-eaP" secondAttribute="leading" constant="16" id="rfx-1B-qbT"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="taskDate" destination="y5L-qn-5ud" id="Ve3-KQ-r9o"/>
+                        <outlet property="taskTitle" destination="v97-kA-meu" id="8q6-C7-Bt0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M6S-VV-aZ9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -211,6 +268,9 @@
     <resources>
         <image name="checkmark" catalog="system" width="128" height="114"/>
         <image name="xmark" catalog="system" width="128" height="113"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

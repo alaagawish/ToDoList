@@ -24,7 +24,7 @@ class LocalStorage: LocalStorageProtocol {
             let tasks = try managedContext.fetch(fetchRequest)
             
             for i in tasks {
-                allTasks.append(Task(id: i.value(forKey: "id") as! Int, title: i.value(forKey: "title") as! String, date: i.value(forKey: "date") as! Date, isCompleted: i.value(forKey: "isDone") as? Bool ?? false))
+                allTasks.append(Task(id: i.value(forKey: "id") as! Int, title: i.value(forKey: "title") as! String, date: i.value(forKey: "date") as! String, isCompleted: i.value(forKey: "isDone") as? Bool ?? false))
             }
             print("Getting all tasks done.")
             
@@ -74,7 +74,6 @@ class LocalStorage: LocalStorageProtocol {
             if let storedTask = results.first {
                 storedTask.title = task.title
                 storedTask.isDone = task.isCompleted
-                
                 try managedContext.save()
                 print("Task updated successfully.")
             } else {

@@ -25,8 +25,7 @@ class HomeViewController: BaseViewController {
     override func bindValues() {
         homeViewModel.bindAllTasks =  { [weak self] in
             guard let self = self else { return }
-            
-            self.tasks  = tasks.sorted {
+            self.tasks = self.homeViewModel.tasks.sorted {
                 if $0.isCompleted != $1.isCompleted {
                     return !$0.isCompleted
                 } else {
@@ -51,6 +50,7 @@ class HomeViewController: BaseViewController {
     
     @IBAction func doneEditingTask(_ sender: Any) {
         tasks[currentEditTaskIndex].title = newTitleTextField.text ?? ""
+        homeViewModel.updateTask(task: tasks[currentEditTaskIndex])
         editTaskView.isHidden = true
     }
     @IBAction func addNewTask(_ sender: Any) {
@@ -93,10 +93,12 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
 }
 extension HomeViewController: TaskDelegate {
     func selectTask(at indexPath: IndexPath) {
+        tasks[indexPath.row].isCompleted.toggle()
         homeViewModel.updateTask(task: tasks[indexPath.row])
     }
     
     func uncheckedTask(at indexPath: IndexPath) {
+        tasks[indexPath.row].isCompleted.toggle()
         homeViewModel.updateTask(task: tasks[indexPath.row])
     }
     
