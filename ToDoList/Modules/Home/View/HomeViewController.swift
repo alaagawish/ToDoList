@@ -93,11 +93,11 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
 }
 extension HomeViewController: TaskDelegate {
     func selectTask(at indexPath: IndexPath) {
-        homeViewModel.updateTask(task: tasks[indexPath.row], completeFlag: true)
+        homeViewModel.updateTask(task: tasks[indexPath.row])
     }
     
     func uncheckedTask(at indexPath: IndexPath) {
-        homeViewModel.updateTask(task: tasks[indexPath.row], completeFlag: false)
+        homeViewModel.updateTask(task: tasks[indexPath.row])
     }
     
     func editTask(at indexPath: IndexPath) {

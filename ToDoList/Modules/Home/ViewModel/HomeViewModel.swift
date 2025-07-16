@@ -33,8 +33,8 @@ class HomeViewModel {
         self.getAllTasks()
     }
     
-    func updateTask(task: Task, completeFlag: Bool = false) {
-        localStorage.updateTask(task, completeFlag: completeFlag)
+    func updateTask(task: Task) {
+        localStorage.updateTask(task)
         getAllTasks()
     }
 }
