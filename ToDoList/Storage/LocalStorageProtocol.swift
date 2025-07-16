@@ -8,5 +8,8 @@
 import Foundation
 
 protocol LocalStorageProtocol {
-    
+    func getAllTasks() -> [Task]
+    func saveTask(_ task: Task)
+    func deleteTask(withId id: Int)
+    func updateTask(_ task: Task, completeFlag: Bool)
 }

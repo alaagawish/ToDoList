@@ -8,7 +8,7 @@
 import UIKit
 
 class NewTaskViewController: UIViewController {
-
+    static let identifier: String = "NewTaskViewController"
     override func viewDidLoad() {
         super.viewDidLoad()
 
