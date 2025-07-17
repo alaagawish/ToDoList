@@ -24,6 +24,17 @@ A clean, minimal To-Do app built with **UIKit** that allows users to manage task
 - UITableView 
 - Auto Layout
 - DatePicker (for setting deadlines)
+  
+---
+## Screenshots
+
+<p float="left">
+  <img src="Screenshots/task_list.png" width="200"/>
+  <img src="Screenshots/add_task.png" width="200"/>
+  <img src="Screenshots/completed_task.png" width="200"/>
+  <img src="Screenshots/swipe_delete.png" width="200"/>
+  <img src="Screenshots/edit_task.png" width="200"/>
+</p>
 
 ---
 
@@ -40,15 +51,4 @@ A clean, minimal To-Do app built with **UIKit** that allows users to manage task
 │   └── AddTaskViewController.swift
 ├── Storage/
 │   └── LocalSource.swift
-
----
-## ✨ Screenshots
-
-<p float="left">
-  <img src="Screenshots/task_list.png" width="200"/>
-  <img src="Screenshots/add_task.png" width="200"/>
-  <img src="Screenshots/completed_task.png" width="200"/>
-  <img src="Screenshots/swipe_delete.png" width="200"/>
-  <img src="Screenshots/edit_task.png" width="200"/>
-</p>
 
