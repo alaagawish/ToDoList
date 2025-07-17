@@ -89,7 +89,9 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         deleteAction.backgroundColor = .red
         return UISwipeActionsConfiguration(actions: [deleteAction])
     }
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: false)
+    }
 }
 extension HomeViewController: TaskDelegate {
     func selectTask(at indexPath: IndexPath) {
